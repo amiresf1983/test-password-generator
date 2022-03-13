@@ -1,6 +1,5 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
-// Write password to the #password input
+
 var preferences = {
   passwordLength: 0,
   randomLowerLetters: 0,
@@ -15,15 +14,12 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
-// console.log(generatePassword);
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
   window.alert("Let's Start generating a Password!");
-  // console.log(generatePassword());
-  //Prompts
+
   preferences.passwordLength = window.prompt(
     "Password Length\n\nType a number from 8 to 128 and press OK.",
     "8"
@@ -50,8 +46,7 @@ function generatePassword() {
   var punctuation = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
   var password = "";
   var character = "";
-  // var crunch = true;
-  //while (password.length < length) {
+
   var validCharacters = "";
   if (preferences.randomLowerLetters == true) {
     validCharacters += string;
@@ -74,20 +69,10 @@ function generatePassword() {
   }
 
   while (password.length < length) {
-    //determine a random character from validCharacters
-    function generatePassword(length) {
-      let result = " ";
-      const validCharacters = validCharacters.length;
-      for (let i = 0; i < length; i++) {
-        result += validCharacters(
-          Math.floor(Math.random() * validCharacters.length)
-        );
-      }
+    var randomChar = validCharacters(
+      Math.floor(Math.random() * validCharacters.length)
+    );
 
-      return result;
-    }
-
-    //add the random character to the password
     password += randomChar;
   }
   console.log(password);
