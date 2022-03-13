@@ -68,19 +68,27 @@ function generatePassword() {
   if (preferences.randomSpecialCharacters == true) {
     validCharacters += punctuation;
   }
-  if ((validCharacters = "")) {
+  if (validCharacters == "") {
     window.alert(" ERROR: at least one type of characters must be selected");
     return;
   }
 
   while (password.length < length) {
     //determine a random character from validCharacters
-    const randomChar = Math.ceil(
-      validCharacters.length * Math.random() * Math.random()
-    )(
-      //add the random character to the password
-      (password += randomChar)
-    );
+    function generatePassword(length) {
+      let result = " ";
+      const validCharacters = validCharacters.length;
+      for (let i = 0; i < length; i++) {
+        result += validCharacters(
+          Math.floor(Math.random() * validCharacters.length)
+        );
+      }
+
+      return result;
+    }
+
+    //add the random character to the password
+    password += randomChar;
   }
   console.log(password);
   password = password
